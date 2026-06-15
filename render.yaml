@@ -4,6 +4,7 @@ services:
     runtime: node
     plan: free
     region: frankfurt
+    repo: https://github.com/haykgrigoryan22/nverly
     branch: main
     autoDeploy: true
     buildCommand: npm ci && npm run build
