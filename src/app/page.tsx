@@ -18,6 +18,7 @@ import {
   storePerks,
   trustItems,
 } from "@/lib/site";
+import { BrandLogo } from "@/components/brand-logo";
 
 export default function Home() {
   return (
@@ -28,15 +29,16 @@ export default function Home() {
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 rounded-md border border-teal-200 bg-white/90 px-3 py-2 text-sm font-semibold text-teal-800 shadow-sm">
               <Sparkles className="h-4 w-4" aria-hidden="true" />
-              Digital gift cards for games, shopping, and rewards
+              Reloadly-supported digital catalog
             </div>
             <h1 className="mt-7 max-w-4xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">
-              Gift cards for every player, shopper, and surprise moment.
+              Gift cards, prepaid rewards, and mobile top-ups in one clean store.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              Browse digital gift cards and gaming credit for popular stores,
-              consoles, apps, and lifestyle brands. Pick a product, choose an
-              amount, and get ready for fast online delivery.
+              Nverly is being built around Reloadly-supported products: digital
+              gift cards, gaming cards, prepaid payment cards, mobile airtime,
+              data bundles, and Perq payout links. Availability depends on the
+              recipient country and live provider catalog.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
@@ -54,7 +56,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
-              {["Instant digital codes", "Secure checkout ready", "Email support"].map(
+              {["Country-aware catalog", "Secure checkout ready", "Email support"].map(
                 (item) => (
                   <div key={item} className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-teal-600" aria-hidden="true" />
@@ -76,7 +78,7 @@ export default function Home() {
                 className="w-full rounded-lg border border-slate-200 bg-white shadow-2xl shadow-slate-300/50"
               />
               <div className="absolute left-4 top-4 rounded-md border border-white/70 bg-white/90 px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm backdrop-blur">
-                New cards weekly
+                Catalog varies by country
               </div>
               <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-md border border-white/70 bg-white/90 px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm backdrop-blur">
                 <LockKeyhole className="h-4 w-4 text-teal-700" aria-hidden="true" />
@@ -111,12 +113,12 @@ export default function Home() {
               Popular cards
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              Gifts people actually want.
+              Products aligned with Reloadly support.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              Nverly is preparing a clean catalog for gaming, shopping, app store,
-              fashion, and entertainment gift cards. Product cards below are examples
-              of the storefront experience.
+              The cards below use product families and brand examples referenced in
+              Reloadly public materials. They are storefront placeholders until live
+              catalog access, pricing, and checkout are connected.
             </p>
           </div>
           <span className="inline-flex w-fit items-center gap-2 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900">
@@ -126,10 +128,7 @@ export default function Home() {
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredProducts.map((product) => {
-            const Icon = product.icon;
-
-            return (
+          {featuredProducts.map((product) => (
               <article
                 key={product.name}
                 className="product-card group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
@@ -138,14 +137,18 @@ export default function Home() {
                   className={`relative flex aspect-[1.55] items-end overflow-hidden rounded-lg bg-gradient-to-br ${product.accent} p-4 text-white`}
                 >
                   <div className="absolute -right-6 -top-8 h-24 w-24 rounded-full bg-white/20" />
-                  <div className="absolute bottom-4 right-4 opacity-80">
-                    <Icon className="h-9 w-9" aria-hidden="true" />
+                  <div className="absolute right-4 top-4 flex min-h-12 min-w-12 items-center justify-center rounded-md bg-white/90 px-3 text-slate-950 shadow-sm">
+                    <BrandLogo
+                      logo={product.logo}
+                      label={product.name}
+                      className="max-h-8 min-h-6 w-auto max-w-24"
+                    />
                   </div>
-                  <div>
+                  <div className="max-w-[78%]">
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
                       {product.category}
                     </p>
-                    <h3 className="mt-2 text-xl font-semibold">{product.name}</h3>
+                    <h3 className="mt-2 text-xl font-semibold leading-tight">{product.name}</h3>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-slate-600">
@@ -153,15 +156,14 @@ export default function Home() {
                 </p>
                 <div className="mt-5 flex items-center justify-between gap-3">
                   <span className="text-sm font-semibold text-slate-950">
-                    {product.amounts}
+                    {product.availability}
                   </span>
                   <span className="rounded-md bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-700">
                     Soon
                   </span>
                 </div>
               </article>
-            );
-          })}
+            ))}
         </div>
       </section>
 
@@ -172,7 +174,7 @@ export default function Home() {
               Shop by category
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              From gaming nights to birthday gifts.
+              Only product families Reloadly publicly supports.
             </h2>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -206,11 +208,11 @@ export default function Home() {
             How it works
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            A smooth digital gifting flow.
+            A provider-aware digital flow.
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Built for quick gifts, clear order details, and digital delivery without
-            shipping delays.
+            Built for supported regions, correct recipient details, and digital
+            delivery without physical shipping.
           </p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -232,11 +234,12 @@ export default function Home() {
               Why Nverly
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Digital gifts should feel easy, fast, and safe.
+              Digital distribution should feel clear, fast, and safe.
             </h2>
             <p className="mt-5 max-w-3xl text-base leading-7 text-slate-200">
-              Nverly brings gift cards, gaming credit, and digital vouchers into a
-              simple marketplace experience with support and verification when needed.
+              Nverly presents Reloadly-supported digital goods in a simple storefront
+              experience with support, country-aware availability, and verification
+              when needed.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -308,8 +311,9 @@ export default function Home() {
               Need a card that is not listed?
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300">
-              Tell us what gift card, region, or digital product you want to see on
-              Nverly. We are building the catalog around real customer demand.
+              Tell us what country, operator, gift card, or reward option you want
+              to see on Nverly. Requests will be checked against provider-supported
+              catalog availability before launch.
             </p>
           </div>
           <Link

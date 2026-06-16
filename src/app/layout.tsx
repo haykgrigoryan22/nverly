@@ -17,15 +17,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nverly.com"),
   title: {
-    default: "Nverly — Digital Gift Cards, Game Top-Ups & Codes",
+    default: "Nverly — Digital Gift Cards, Airtime Top-Ups & Rewards",
     template: "%s | Nverly",
   },
   description:
-    "Buy digital gift cards, gaming top-ups, vouchers, and digital codes with fast online delivery.",
+    "Browse digital gift cards, prepaid rewards, airtime top-ups, and data bundles with fast online delivery.",
   openGraph: {
-    title: "Nverly — Digital Gift Cards, Game Top-Ups & Codes",
+    title: "Nverly — Digital Gift Cards, Airtime Top-Ups & Rewards",
     description:
-      "Buy digital gift cards, gaming top-ups, vouchers, and digital codes with fast online delivery.",
+      "Browse digital gift cards, prepaid rewards, airtime top-ups, and data bundles with fast online delivery.",
     url: "https://nverly.com",
     siteName: "Nverly",
     type: "website",

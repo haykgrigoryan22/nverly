@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 const sections = [
   {
     title: "Digital goods marketplace",
-    body: "Nverly sells or facilitates digital goods such as gift cards, game top-ups, digital codes, vouchers, gaming products, digital services, and rewards. Product availability may vary by region, supplier, and operational status.",
+    body: "Nverly sells or facilitates supported digital goods such as gift cards, gaming gift cards, prepaid reward cards, mobile airtime top-ups, mobile data bundles, vouchers, and payout links. Product availability may vary by region, supplier, provider catalog, and operational status.",
   },
   {
     title: "Electronic delivery",
