@@ -17,8 +17,8 @@ export function SiteFooter() {
             {site.name}
           </Link>
           <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">
-            {site.tagline}. A digital goods marketplace for gift cards, game top-ups,
-            digital codes, vouchers, and customer rewards.
+            {site.tagline}. A modern place to browse digital gift cards, game credit,
+            app store cards, shopping vouchers, and digital rewards.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             {footerHighlights.map((item) => {
@@ -63,7 +63,7 @@ export function SiteFooter() {
           <div className="col-span-2 sm:col-span-2">
             <h2 className="text-sm font-semibold text-slate-950">Business</h2>
             <p className="mt-3 max-w-xs text-sm leading-6 text-slate-600">
-              For partnerships, provider access, and customer support, contact us at{" "}
+              For gift-card requests, partnerships, and customer support, contact us at{" "}
               <a className="font-medium text-slate-950" href={`mailto:${site.email}`}>
                 {site.email}
               </a>

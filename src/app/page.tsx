@@ -1,127 +1,164 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BadgeCheck,
   CheckCircle2,
-  Clock3,
-  Globe2,
+  Gift,
   LockKeyhole,
-  ShieldCheck,
+  Sparkles,
+  Star,
 } from "lucide-react";
 import {
-  contactReasons,
+  brandDisclaimer,
+  brandExamples,
+  featuredProducts,
   howItWorks,
   productCategories,
-  site,
+  storePerks,
   trustItems,
 } from "@/lib/site";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-white">
-      <section className="relative border-b border-slate-200 bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.16),transparent_28%),radial-gradient(circle_at_85%_0%,rgba(124,58,237,0.14),transparent_28%),linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)]">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-teal-200 bg-white px-3 py-2 text-sm font-medium text-teal-800 shadow-sm">
-              <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              Secure digital goods marketplace
+    <main className="overflow-hidden bg-white text-slate-950">
+      <section className="relative border-b border-slate-200 bg-[radial-gradient(circle_at_18%_18%,rgba(20,184,166,0.18),transparent_30%),radial-gradient(circle_at_86%_8%,rgba(249,115,22,0.14),transparent_26%),linear-gradient(180deg,#ffffff_0%,#f8fafc_100%)]">
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-6 sm:py-18 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-20">
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 rounded-md border border-teal-200 bg-white/90 px-3 py-2 text-sm font-semibold text-teal-800 shadow-sm">
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
+              Digital gift cards for games, shopping, and rewards
             </div>
             <h1 className="mt-7 max-w-4xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-6xl">
-              Digital gifts, cards, and game top-ups — delivered instantly.
+              Gift cards for every player, shopper, and surprise moment.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              Nverly helps customers buy digital gift cards, gaming top-ups, vouchers,
-              and digital codes through a simple and secure online experience.
+              Browse digital gift cards and gaming credit for popular stores,
+              consoles, apps, and lifestyle brands. Pick a product, choose an
+              amount, and get ready for fast online delivery.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/contact"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-slate-950 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800"
+                href="#gift-cards"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-slate-950 px-6 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-800"
               >
-                Contact Us
+                Browse Gift Cards
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <span className="inline-flex h-12 items-center justify-center rounded-md border border-slate-300 bg-white px-6 text-sm font-semibold text-slate-700 shadow-sm">
-                Coming Soon
-              </span>
+              <Link
+                href="/contact"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-slate-300 bg-white px-6 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-400"
+              >
+                Request a Card
+              </Link>
+            </div>
+            <div className="mt-8 grid gap-3 text-sm text-slate-600 sm:grid-cols-3">
+              {["Instant digital codes", "Secure checkout ready", "Email support"].map(
+                (item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-teal-600" aria-hidden="true" />
+                    {item}
+                  </div>
+                ),
+              )}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative rounded-lg border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/70">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                <div>
-                  <p className="text-sm font-medium text-slate-500">Marketplace status</p>
-                  <p className="mt-1 text-xl font-semibold text-slate-950">Pre-launch</p>
-                </div>
-                <span className="rounded-md bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-800">
-                  Provider review ready
-                </span>
+          <div className="relative z-10">
+            <div className="hero-float relative">
+              <Image
+                src="/hero-gift-cards.png"
+                alt="A premium stack of generic digital gift cards"
+                width={1717}
+                height={916}
+                priority
+                className="w-full rounded-lg border border-slate-200 bg-white shadow-2xl shadow-slate-300/50"
+              />
+              <div className="absolute left-4 top-4 rounded-md border border-white/70 bg-white/90 px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm backdrop-blur">
+                New cards weekly
               </div>
-              <div className="mt-5 grid gap-3">
-                {[
-                  { label: "Digital delivery", icon: Clock3 },
-                  { label: "Secure payment flow", icon: LockKeyhole },
-                  { label: "Regional product checks", icon: Globe2 },
-                ].map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div
-                      key={item.label}
-                      className="flex items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-4 py-3"
-                    >
-                      <span className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                        <Icon className="h-4 w-4 text-teal-600" aria-hidden="true" />
-                        {item.label}
-                      </span>
-                      <CheckCircle2 className="h-5 w-5 text-teal-600" aria-hidden="true" />
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="mt-5 rounded-lg border border-dashed border-slate-300 p-4">
-                <p className="text-sm font-semibold text-slate-950">Product catalog</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Placeholder product cards are shown for review. Checkout and fulfillment
-                  will be enabled after supplier, compliance, and payment setup.
-                </p>
+              <div className="absolute bottom-4 right-4 flex items-center gap-2 rounded-md border border-white/70 bg-white/90 px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm backdrop-blur">
+                <LockKeyhole className="h-4 w-4 text-teal-700" aria-hidden="true" />
+                Secure delivery
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
-            Product categories
-          </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Digital products with clear, compliant positioning.
-          </h2>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            Nverly is preparing a marketplace experience for common digital goods.
-            These categories are placeholders and do not represent live checkout.
-          </p>
+      <section aria-label="Example gift card brands" className="border-b border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-6 sm:px-6 lg:px-8">
+          <div className="brand-marquee overflow-hidden">
+            <div className="brand-track flex w-max gap-3">
+              {[...brandExamples, ...brandExamples].map((brand, index) => (
+                <span
+                  key={`${brand}-${index}`}
+                  className="inline-flex h-10 items-center rounded-md border border-slate-200 bg-slate-50 px-4 text-sm font-semibold text-slate-700"
+                >
+                  {brand}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {productCategories.map((category) => {
-            const Icon = category.icon;
+      </section>
+
+      <section id="gift-cards" className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+              Popular cards
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              Gifts people actually want.
+            </h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">
+              Nverly is preparing a clean catalog for gaming, shopping, app store,
+              fashion, and entertainment gift cards. Product cards below are examples
+              of the storefront experience.
+            </p>
+          </div>
+          <span className="inline-flex w-fit items-center gap-2 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900">
+            <Star className="h-4 w-4" aria-hidden="true" />
+            Checkout coming soon
+          </span>
+        </div>
+
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredProducts.map((product) => {
+            const Icon = product.icon;
 
             return (
               <article
-                key={category.title}
-                className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                key={product.name}
+                className="product-card group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+                <div
+                  className={`relative flex aspect-[1.55] items-end overflow-hidden rounded-lg bg-gradient-to-br ${product.accent} p-4 text-white`}
+                >
+                  <div className="absolute -right-6 -top-8 h-24 w-24 rounded-full bg-white/20" />
+                  <div className="absolute bottom-4 right-4 opacity-80">
+                    <Icon className="h-9 w-9" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/80">
+                      {product.category}
+                    </p>
+                    <h3 className="mt-2 text-xl font-semibold">{product.name}</h3>
+                  </div>
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-slate-950">
-                  {category.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  {category.description}
+                <p className="mt-4 text-sm leading-6 text-slate-600">
+                  {product.description}
                 </p>
+                <div className="mt-5 flex items-center justify-between gap-3">
+                  <span className="text-sm font-semibold text-slate-950">
+                    {product.amounts}
+                  </span>
+                  <span className="rounded-md bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-700">
+                    Soon
+                  </span>
+                </div>
               </article>
             );
           })}
@@ -129,27 +166,93 @@ export default function Home() {
       </section>
 
       <section className="border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
-              How it works
+              Shop by category
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              A simple flow from product selection to digital delivery.
+              From gaming nights to birthday gifts.
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {howItWorks.map((step, index) => (
-              <div
-                key={step}
-                className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-md bg-slate-950 text-sm font-semibold text-white">
-                  {index + 1}
-                </span>
-                <p className="mt-4 text-base font-semibold text-slate-950">{step}</p>
-              </div>
-            ))}
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {productCategories.map((category) => {
+              const Icon = category.icon;
+
+              return (
+                <article
+                  key={category.title}
+                  className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-slate-950">
+                    {category.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {category.description}
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+            How it works
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            A smooth digital gifting flow.
+          </h2>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            Built for quick gifts, clear order details, and digital delivery without
+            shipping delays.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {howItWorks.map((step, index) => (
+            <div key={step} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
+              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-slate-950 text-sm font-semibold text-white">
+                {index + 1}
+              </span>
+              <p className="mt-4 text-base font-semibold text-slate-950">{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-[linear-gradient(135deg,#0f172a_0%,#0f766e_52%,#7c2d12_100%)] text-white">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">
+              Why Nverly
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Digital gifts should feel easy, fast, and safe.
+            </h2>
+            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-200">
+              Nverly brings gift cards, gaming credit, and digital vouchers into a
+              simple marketplace experience with support and verification when needed.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {storePerks.map((perk) => {
+              const Icon = perk.icon;
+
+              return (
+                <div key={perk.title} className="rounded-lg border border-white/15 bg-white/10 p-5 backdrop-blur">
+                  <Icon className="h-5 w-5 text-teal-200" aria-hidden="true" />
+                  <h3 className="mt-4 text-base font-semibold">{perk.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-200">
+                    {perk.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -158,14 +261,14 @@ export default function Home() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
-              Trust & safety
+              Trust & support
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              Designed for customer confidence and business review.
+              Clear policies before checkout goes live.
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              Nverly emphasizes clear policies, secure fulfillment, and careful order
-              handling before enabling live transactions.
+              We keep the site transparent: digital delivery rules, refunds, and support
+              are easy to find before customers buy.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -186,60 +289,36 @@ export default function Home() {
             })}
           </div>
         </div>
-      </section>
 
-      <section className="border-y border-slate-200 bg-[linear-gradient(135deg,#0f172a_0%,#134e4a_55%,#1e1b4b_100%)] text-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_0.7fr] lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">
-              Business & providers
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Built for reliable digital distribution
-            </h2>
-            <p className="mt-5 max-w-3xl text-base leading-7 text-slate-200">
-              Nverly works with digital product suppliers and API providers to offer a
-              secure and compliant digital goods experience for customers.
-            </p>
-          </div>
-          <div className="rounded-lg border border-white/15 bg-white/10 p-5 backdrop-blur">
-            <h3 className="text-base font-semibold">Review-friendly foundation</h3>
-            <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-200">
-              <li>Clear policy pages and support contact</li>
-              <li>Transparent supplier and payment onboarding</li>
-              <li>Pre-launch catalog language until checkout is enabled</li>
-            </ul>
+        <div className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-600">
+          <div className="flex gap-3">
+            <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-teal-700" aria-hidden="true" />
+            <p>{brandDisclaimer}</p>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-lg border border-slate-200 bg-slate-50 p-6 sm:p-8 lg:grid-cols-[1fr_0.7fr]">
+      <section className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
+        <div className="grid gap-6 rounded-lg border border-slate-200 bg-slate-950 p-6 text-white sm:p-8 lg:grid-cols-[1fr_0.45fr] lg:items-center">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
-              Contact
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">
-              Talk to Nverly
+            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10">
+              <Gift className="h-5 w-5 text-teal-200" aria-hidden="true" />
+            </div>
+            <h2 className="mt-5 text-3xl font-semibold tracking-tight">
+              Need a card that is not listed?
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-              For partnerships, provider access, and customer support, contact us at{" "}
-              <a className="font-semibold text-slate-950" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-              .
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-300">
+              Tell us what gift card, region, or digital product you want to see on
+              Nverly. We are building the catalog around real customer demand.
             </p>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-            {contactReasons.map((reason) => (
-              <span
-                key={reason}
-                className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700"
-              >
-                {reason}
-              </span>
-            ))}
-          </div>
+          <Link
+            href="/contact"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-white px-6 text-sm font-semibold text-slate-950 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-100"
+          >
+            Contact Nverly
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
         </div>
       </section>
     </main>
